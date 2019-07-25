@@ -34,10 +34,9 @@ Follow these instructions to run the demo workflow:
 3. Set up a demo workflow:
 
    ```sh
-   mkdir demo
-   cd demo
-   npm init
-   npm install @cocoon/demo
+   git clone https://github.com/aengl/cocoon-demo.git
+   cd cocoon-demo
+   npm install
    ```
 
 4. Run the editor and browse to the `.yml` file in the demo folder:

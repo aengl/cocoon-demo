@@ -1,0 +1,18 @@
+{
+  "name": "cocoon-demo",
+  "private": true,
+  "workspaces": [
+    "examples/*"
+  ],
+  "devDependencies": {
+    "@cocoon/editor": "0.98.0",
+    "prettier": "1.18.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "scripts": {
+    "run:imdb": "cocoon-editor examples/imdb/cocoon.yml"
+  }
+}
