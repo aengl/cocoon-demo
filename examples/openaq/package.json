@@ -1,0 +1,9 @@
+{
+  "name": "example-openaq",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "@cocoon/plugin-echarts": "0.98.0",
+    "@cocoon/plugin-inspect": "0.99.0"
+  }
+}

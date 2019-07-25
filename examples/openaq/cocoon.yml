@@ -1,0 +1,53 @@
+nodes:
+  DataFromAPI:
+    '?': 'Query OpenAQ. See: https://docs.openaq.org/#api-Measurements'
+    editor:
+      col: 0
+      row: 0
+    in:
+      uri: 'https://api.openaq.org/v1/measurements?limit=10000&country=CH'
+    persist: true
+    type: ReadJSON
+  ExtractResults:
+    '?': >-
+      The API returns an object, but we're only interested in the result array
+      with measurements.
+    editor:
+      col: 1
+      row: 0
+    in:
+      data: 'cocoon://DataFromAPI/out/data'
+      map: x => x.results
+    type: Map
+  InspectFirstItem:
+    '?': Inspect the first datapoint.
+    editor:
+      col: 2
+      row: 1
+    in:
+      data: 'cocoon://ExtractResults/out/data'
+      filter: '(x, i) => i === 0'
+    type: Filter
+    view: out/data/Inspector
+    viewState:
+      expandLevel: 3
+  MapValues:
+    '?': Reshape and plot the data.
+    editor:
+      col: 2
+      row: 0
+    in:
+      data: 'cocoon://ExtractResults/out/data'
+      map: |
+        x => ({
+          city: x.city,
+          daysAgo: (new Date(x.date.local).getTime() - Date.now()) / 86400000,
+          location: x.location,
+          [x.parameter]: x.value,
+        })
+    type: Map
+    view: Scatterplot
+    viewState:
+      tooltips:
+        - city
+      'y': o3
