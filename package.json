@@ -13,6 +13,6 @@
     "trailingComma": "es5"
   },
   "scripts": {
-    "run:imdb": "cocoon-editor examples/imdb/cocoon.yml"
+    "run:simple-api": "cocoon-editor examples/simple-api/cocoon.yml"
   }
 }

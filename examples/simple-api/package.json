@@ -1,5 +1,5 @@
 {
-  "name": "example-openaq",
+  "name": "example-simple-api",
   "private": true,
   "version": "1.0.0",
   "dependencies": {
