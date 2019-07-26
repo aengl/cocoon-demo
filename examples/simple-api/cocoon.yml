@@ -48,6 +48,6 @@ nodes:
     type: Map
     view: Scatterplot
     viewState:
-      tooltips:
+      tooltip:
         - city
       'y': o3
