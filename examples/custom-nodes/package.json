@@ -1,0 +1,20 @@
+{
+  "name": "example-custom-nodes",
+  "private": true,
+  "version": "1.0.0",
+  "cocoon": {
+    "nodes": [
+      "ExampleNode.js",
+      "Wikipedia.js"
+    ]
+  },
+  "dependencies": {
+    "@cocoon/distance": "0.86.0",
+    "@cocoon/plugin-echarts": "0.99.0",
+    "@types/lodash": "4.14.136",
+    "got": "9.6.0"
+  },
+  "devDependencies": {
+    "@types/got": "9.6.4"
+  }
+}
