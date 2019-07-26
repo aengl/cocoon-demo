@@ -7,9 +7,9 @@ Though tasks are defined declaratively using [YAML](https://yaml.org), Cocoon co
 Our design goals for Cocoon are:
 
 - **Interactive**: We aim at making exploring and working with large datasets a fun experience, through rich visualisations and instant feedback.
-- **Extensible**: Cocoon leverages the [NPM](https://npmjs.com) ecosystem for creating and importing task nodes and visualisations.
-- **Modern**: Using [TypeScript](https://www.typescriptlang.org) and [React](https://reactjs.org) means that full-stack developers will be right at home when extending Cocoon's functionality.
-- **Fast**: Cocoon's editor uses [Node.JS](https://nodejs.org) workers that can even be run remotely, to ensure that the UI is always responsive.
+- **Extensible**: Cocoon leverages the [npm](https://npmjs.com) ecosystem for creating and importing task nodes and visualisations.
+- **Modern**: Using [TypeScript](https://www.typescriptlang.org) and [React](https://reactjs.org) means that most web developers will be right at home when extending Cocoon's functionality.
+- **Fast**: Cocoon's editor uses a dedicated [Node.JS](https://nodejs.org) instance for processing (that can even be run remotely), to ensure that the UI is always responsive.
 
 ## Features
 
@@ -21,31 +21,19 @@ TODO
 
 Interested in giving Cocoon a try yourself? While we're not ready to fully open source Cocoon quite yet, there is a [free distribution version hosted on NPM](https://www.npmjs.com/package/@cocoon/cocoon).
 
-Follow these instructions to run the demo workflow:
+Follow these instructions to run the examples in this repository, or to build your own workflow:
 
 1. Make sure to have a [recent version of Node.JS](https://nodejs.org/en/download/) installed.
 
-2. Install Cocoon:
+2. Install the dependencies by running `npm install` or `yarn`.
+
+3. Run any of the examples. We recommend starting with:
 
    ```sh
-   npm install -g @cocoon/cocoon
+   npm run example:simple-api
    ```
 
-3. Set up a demo workflow:
-
-   ```sh
-   git clone https://github.com/aengl/cocoon-demo.git
-   cd cocoon-demo
-   npm install
-   ```
-
-4. Run the editor and browse to the `.yml` file in the demo folder:
-
-   ```sh
-   cocoon-editor
-   ```
-
-If you want to create a new workflow, simply create an empty `.yml` file and browse to that one instead.
+If you want to create a new workflow, simply create an empty `.yml` file and point your browser to it.
 
 ## Using Cocoon
 
@@ -63,4 +51,4 @@ All of Cocoon's developers have masters degrees (AI/computer science) with a str
 
 ## Contact
 
-For questions, feedback and offers, please write directly to [aengl](https://github.com/aengl).
+For questions, feedback and offers, either open an issue in this repository or write directly to [aengl](https://github.com/aengl).

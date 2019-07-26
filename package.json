@@ -13,6 +13,6 @@
     "trailingComma": "es5"
   },
   "scripts": {
-    "run:simple-api": "cocoon-editor examples/simple-api/cocoon.yml"
+    "example:simple-api": "cocoon-editor examples/simple-api/cocoon.yml"
   }
 }
