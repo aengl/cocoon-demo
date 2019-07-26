@@ -1,4 +1,5 @@
 data/
+dist/
 images/
 node_modules/
 _*

@@ -4,17 +4,27 @@
   "version": "1.0.0",
   "cocoon": {
     "nodes": [
-      "ExampleNode.js",
-      "Wikipedia.js"
+      "nodes/ExampleNode.js",
+      "nodes/Wikipedia.js"
+    ],
+    "views": [
+      {
+        "module": "views/index.js",
+        "component": "dist/components.js"
+      }
     ]
   },
   "dependencies": {
-    "@cocoon/distance": "0.86.0",
+    "@cocoon/plugin-distance": "0.99.0",
     "@cocoon/plugin-echarts": "0.99.0",
-    "@types/lodash": "4.14.136",
     "got": "9.6.0"
   },
   "devDependencies": {
+    "@cocoon/rollup": "0.99.0",
+    "@cocoon/types": "0.99.0",
     "@types/got": "9.6.4"
+  },
+  "scripts": {
+    "build": "rollup --config rollup.config.js"
   }
 }
