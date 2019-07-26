@@ -1,6 +1,7 @@
 /**
  * A Cocoon node is essentially a pure function wrapped in an object that
- * contains some meta information, exported according to ES2015 standards.
+ * contains some meta information, exported using CommonJS (Cocoon will adopt
+ * ES2015 exports once it rolls out in Node.JS).
  *
  * No library or API imports required! It's that simple.
  */

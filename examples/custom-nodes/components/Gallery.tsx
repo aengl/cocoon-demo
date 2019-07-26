@@ -1,6 +1,22 @@
+/**
+ * Custom views in Cocoon have a node and a browser component.
+ *
+ * The browser part is a React component that will be rendered into the preview
+ * area underneath as node in the editor (with a `isPreview={true}` prop), as
+ * well as in its own, dedicated view.
+ */
+
 import React from 'react';
 import styled from 'styled-components';
 
+/**
+ * Like nodes, Cocoon expects a named import, with the additional restriction
+ * that the name of the export must match the node part of the view (see
+ * `../views/Gallery.js`).
+ *
+ * The contents of the `viewData` prop is the data returned in
+ * `serialiseViewData()` in the node part of the view.
+ */
 export const Gallery = ({ isPreview, viewData }) => (
   <Wrapper isPreview={isPreview}>
     {viewData.map(item => (
