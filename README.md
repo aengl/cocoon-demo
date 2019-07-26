@@ -15,7 +15,21 @@ Our design goals for Cocoon are:
 
 Here's a visual rundown of Cocoon's main functionality:
 
-TODO
+### Define a Dataflow in YAML
+
+![](/resources/import.gif)
+
+### Inspect Data
+
+![](/resources/inspect.gif)
+
+### Interactive Visualisations
+
+### Merge Datasources & Create Recommendations
+
+### Custom Nodes
+
+### Semi-automated Workflows
 
 ## Getting Started
 
