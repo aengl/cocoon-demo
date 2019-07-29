@@ -9,7 +9,7 @@ Our design goals for Cocoon are:
 - **Interactive**: We aim at making exploring and working with large datasets a fun experience, through rich visualisations and instant feedback.
 - **Extensible**: Cocoon leverages the [npm](https://npmjs.com) ecosystem for creating and importing task nodes and visualisations.
 - **Modern**: Using [TypeScript](https://www.typescriptlang.org) and [React](https://reactjs.org) means that most web developers will be right at home when extending Cocoon's functionality.
-- **Fast**: Cocoon's editor uses a dedicated [Node.JS](https://nodejs.org) instance for processing (that can even be run remotely), to ensure that the UI is always responsive.
+- **Fast**: Cocoon's editor uses a dedicated [Node.js](https://nodejs.org) instance for processing (that can even be run remotely), to ensure that the UI is always responsive.
 
 ## Features
 
@@ -19,9 +19,17 @@ Here's a visual rundown of Cocoon's main functionality:
 
 ![](/resources/import.gif)
 
+Each data processing operation in Cocoon happens in a node, which is visually represented as a graph in the editor.
+
+![](/resources/drag&drop.gif)
+
+The graph can be created with simple direct manipulation technqiues, like drag & drop, right in the browser editor.
+
 ### Inspect Data
 
 ![](/resources/inspect.gif)
+
+The data at each node can be inspected in the browser's developer console.
 
 ### Interactive Visualisations
 
@@ -37,7 +45,7 @@ Interested in giving Cocoon a try yourself? While we're not ready to fully open 
 
 Follow these instructions to run the examples in this repository, or to build your own workflow:
 
-1. Make sure to have a [recent version of Node.JS](https://nodejs.org/en/download/) installed.
+1. Make sure to have a [recent version of Node.js](https://nodejs.org/en/download/) installed.
 
 2. Install the dependencies by running `npm install` or `yarn`.
 
@@ -48,6 +56,26 @@ Follow these instructions to run the examples in this repository, or to build yo
    ```
 
 If you want to create a new workflow, simply create an empty `.yml` file and point your browser to it.
+
+## Why Cocoon?
+
+Cocoon was initially developed for internal purposes only. Even when working with a small team of data scientists, data processing scripts are often hard to read and even more difficult to maintain. For most projects, we ended up having to make sense of a clutter of Python and Bash scripts, Excel sheets and Databases on various servers.
+
+The purpose of Cocoon isn't to replace any of these tools, but rather to unify them into a self-documenting way. Adopting Cocoon shouldn't mean migrating your existing scripts and resources, but rather automating their usage while, at the same time, documenting them and making them more accessible to new developers.
+
+But Cocoon is not the first flow-based data processing environment, of course. So you should make sure that these more mature tools don't fit your needs better:
+
+### [Node-RED](https://nodered.org)
+
+Flow-based, built with Node.js, using JSON. Node-RED has a strong focus on interacting with APIs and IOT devices. Unlike Cocoon it supports real-time streaming of data, but doesn't have any integrated data mining/visualisation capabilities. While somewhat similar from a technical perspective, the project's aim and direction is very different.
+
+### [KNIME](https://www.knime.com)
+
+Cocoon is heavily inspired by KNIME. It is a flow-based Data Mining tool with a huge community and an impressive collection of extensions and integrations. If KNIME's extensions fit your bill, it is almost certainly the better choice. Cocoon was mainly born out of frustration with KNIME's lack of extensibility, dated UI and lackluster UX.
+
+### [Luna](https://www.luna-lang.org)
+
+What makes Luna special is that it is a functional language that has a visual mapping. If the prospect of writing Haskell-like code that can also be represented and edited in a visual way excites you, have a look at this impressive project. (If you're more of an OO-kind of person, check out [Julia](https://julialang.org) instead). Although it is worth noting that Cocoon can be extended using [elm](https://elm-lang.org), [Reason](https://reasonml.github.io) or any other language that can compile to JS.
 
 ## Using Cocoon
 
