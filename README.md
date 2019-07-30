@@ -33,17 +33,23 @@ The data at each node can be inspected in the browser's developer console.
 
 ### Interactive Visualisations
 
+![](/resources/view.gif)
+
+Visualisations can be attached to nodes in order to facilitate in-depth exploration of the data at any step in the process.
+
 ![](/resources/scatterplot.gif)
 
-Visualisations can be attached to nodes in order to facility in-depth exploration of the data at any step in the process.
+Visualisations are fully interactive and can interact with the node's state, allowing visual definitions of complex filter criteria.
 
 ![](/resources/brushing&linking.gif)
 
-By attaching visualisations to connected nodes, Cocoon automatically synchronises them, creating a powerful brushing & linking environment.
+By attaching visualisations to connected nodes, Cocoon automatically synchronises them, creating a powerful [brushing & linking](https://en.wikipedia.org/wiki/Brushing_and_linking) environment.
 
 ### Custom Nodes
 
-Coming soon.
+![](/resources/circle.gif)
+
+Cocoon's biggest emphasis is on extensibility. Custom nodes are simple Javascript objects wrapping a function. Code changes reflect immediately.
 
 ### Merge Datasources & Create Recommendations
 
