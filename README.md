@@ -4,11 +4,11 @@ Cocoon is designed around task automation, but offers instant feedback through i
 
 Though tasks are defined declaratively using [YAML](https://yaml.org), Cocoon comes with a feature-rich, browser-based editor that lets users build complex automation workflows using direct manipulation.
 
-Our design goals for Cocoon are:
+Design goals for Cocoon are:
 
-- **Interactive**: We aim at making exploring and working with large datasets a fun experience, through rich visualisations and instant feedback.
+- **Interactive**: Exploring and working with large datasets should be a fun experience, through rich visualisations and instant feedback.
 - **Extensible**: Cocoon leverages the [npm](https://npmjs.com) ecosystem for creating and importing task nodes and visualisations.
-- **Modern**: Using [TypeScript](https://www.typescriptlang.org) and [React](https://reactjs.org) means that most web developers will be right at home when extending Cocoon's functionality.
+- **Modern**: Using JS/[TypeScript](https://www.typescriptlang.org) and [React](https://reactjs.org) means that most web developers will be right at home when extending Cocoon's functionality.
 - **Fast**: Cocoon's editor uses a dedicated [Node.js](https://nodejs.org) instance for processing (that can even be run remotely), to ensure that the UI is always responsive.
 
 ## Features
@@ -49,7 +49,7 @@ Follow these instructions to run the examples in this repository, or to build yo
 
 2. Install the dependencies by running `npm install` or `yarn`.
 
-3. Run any of the examples. We recommend starting with:
+3. Run any of the examples. To learn the basics, it is recommended to start with:
 
    ```sh
    npm run example:simple-api
@@ -57,13 +57,29 @@ Follow these instructions to run the examples in this repository, or to build yo
 
 If you want to create a new workflow, simply create an empty `.yml` file and point your browser to it.
 
+### Examples
+
+While there's no step-by-step tutorial for Cocoon, the examples are generally filled with documentation that try and explain various concepts and are all aimed at beginners. They can technically be studied in any order, but some of the basisc are only explained in the simpler examples, to avoid repetition. The recommended order is:
+
+1. [simple-api](/simple-api)
+
+   Teaches the basics of creating a custom dataflow by querying an API, along with re-shaping, inspecting and visualising the data.
+
+2. [custom-nodes](/custom-nodes)
+
+   Shows how custom nodes and views can be implemented in Cocoon using Javascript and React.
+
+3. [brushing-and-linking](/brushing-and-linking)
+
+   By linking different visualisations on the same data together, brushing becomes a powerful data exploration tool.
+
 ## Why Cocoon?
 
-Cocoon was initially developed for internal purposes only. Even when working with a small team of data scientists, data processing scripts are often hard to read and even more difficult to maintain. For most projects, we ended up having to make sense of a clutter of Python and Bash scripts, Excel sheets and Databases on various servers.
+Cocoon was initially developed for internal purposes only. Even when working with a small team of data scientists, data processing scripts are often hard to read and even more difficult to maintain. For many projects, one ends up having to make sense of a clutter of Python and Bash scripts, Excel sheets and Databases on various servers.
 
 The purpose of Cocoon isn't to replace any of these tools, but rather to unify them into a self-documenting way. Adopting Cocoon shouldn't mean migrating your existing scripts and resources, but rather automating their usage while, at the same time, documenting them and making them more accessible to new developers.
 
-But Cocoon is not the first flow-based data processing environment, of course. So you should make sure that these more mature tools don't fit your needs better:
+But Cocoon is not the first flow-based data processing environment, of course. So you should make sure that the following more mature tools don't fit your needs better:
 
 ### [Node-RED](https://nodered.org)
 
