@@ -33,23 +33,37 @@ The data at each node can be inspected in the browser's developer console.
 
 ### Interactive Visualisations
 
-### Merge Datasources & Create Recommendations
+![](/resources/scatterplot.gif)
+
+Visualisations can be attached to nodes in order to facility in-depth exploration of the data at any step in the process.
+
+![](/resources/brushing&linking.gif)
+
+By attaching visualisations to connected nodes, Cocoon automatically synchronises them, creating a powerful brushing & linking environment.
 
 ### Custom Nodes
 
+Coming soon.
+
+### Merge Datasources & Create Recommendations
+
+Coming soon.
+
 ### Semi-automated Workflows
+
+Coming soon.
 
 ## Getting Started
 
-Interested in giving Cocoon a try yourself? While we're not ready to fully open source Cocoon quite yet, there is a [free distribution version hosted on NPM](https://www.npmjs.com/package/@cocoon/cocoon).
+Interested in giving Cocoon a try yourself? While we're not ready to fully open source Cocoon quite yet, there is a [free distribution version hosted on npm](https://www.npmjs.com/package/@cocoon/cocoon).
 
 Follow these instructions to run the examples in this repository, or to build your own workflow:
 
 1. Make sure to have a [recent version of Node.js](https://nodejs.org/en/download/) installed.
 
-2. Install the dependencies by running `npm install` or `yarn`.
+1. Install the dependencies by running `npm install` or `yarn`.
 
-3. Run any of the examples. To learn the basics, it is recommended to start with:
+1. Run any of the examples. To learn the basics, it is recommended to start with:
 
    ```sh
    npm run example:simple-api
@@ -65,11 +79,11 @@ While there's no step-by-step tutorial for Cocoon, the examples are generally fi
 
    Teaches the basics of creating a custom dataflow by querying an API, along with re-shaping, inspecting and visualising the data.
 
-2. [custom-nodes](/custom-nodes)
+1. [custom-nodes](/custom-nodes)
 
    Shows how custom nodes and views can be implemented in Cocoon using Javascript and React.
 
-3. [brushing-and-linking](/brushing-and-linking)
+1. [brushing-and-linking](/brushing-and-linking)
 
    By linking different visualisations on the same data together, brushing becomes a powerful data exploration tool.
 
@@ -91,7 +105,7 @@ Cocoon is heavily inspired by KNIME. It is a flow-based Data Mining tool with a 
 
 ### [Luna](https://www.luna-lang.org)
 
-What makes Luna special is that it is a functional language that has a visual mapping. If the prospect of writing Haskell-like code that can also be represented and edited in a visual way excites you, have a look at this impressive project. (If you're more of an OO-kind of person, check out [Julia](https://julialang.org) instead). Although it is worth noting that Cocoon can be extended using [elm](https://elm-lang.org), [Reason](https://reasonml.github.io) or any other language that can compile to JS.
+What makes Luna special is that it is a functional language that has a visual mapping. If the prospect of writing Haskell-like code that can also be represented and edited in a visual way excites you, have a look at this impressive project. (If you're more of an OO kind of person, check out [Julia](https://julialang.org) instead). Although it is worth noting that Cocoon can be extended using [elm](https://elm-lang.org), [Reason](https://reasonml.github.io) or any other language that can compile to JS.
 
 ## Using Cocoon
 
