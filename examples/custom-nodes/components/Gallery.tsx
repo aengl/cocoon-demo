@@ -30,6 +30,7 @@ export const Gallery = ({ isPreview, viewData }) => (
 );
 
 const Wrapper = styled.div`
+  height: 100%;
   text-align: center;
   overflow-y: scroll;
   & img {
