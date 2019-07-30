@@ -1,0 +1,47 @@
+nodes:
+  DataFromAPI:
+    editor:
+      col: 0
+      row: 0
+    in:
+      uri: 'https://fishbase.ropensci.org/species?limit=1000'
+    persist: true
+    type: ReadJSON
+  ExtractData:
+    editor:
+      col: 1
+      row: 0
+    in:
+      data: 'cocoon://DataFromAPI/out/data'
+      map: x => x.data
+    type: Map
+  FishFilter:
+    editor:
+      col: 2
+      row: 0
+    in:
+      data: 'cocoon://ExtractData/out/data'
+    type: FilterRanges
+    view: Scatterplot
+    viewState:
+      color: Fresh
+      tooltip:
+        - FBname
+        - image
+      x: Length
+      'y': Vulnerability
+  FishGallery:
+    editor:
+      col: 3
+      row: 0
+    in:
+      data: 'cocoon://FishFilter/out/data'
+      map: |
+        x => ({
+          src: x.image,
+          title: x.FBname
+        })
+    type: Map
+    view: Gallery
+    viewState:
+      height: 80
