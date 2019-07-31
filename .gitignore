@@ -3,4 +3,5 @@ dist/
 images/
 node_modules/
 _*
+*.mov
 yarn.lock
