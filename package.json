@@ -5,7 +5,7 @@
     "examples/*"
   ],
   "devDependencies": {
-    "@cocoon/editor": "0.99.0",
+    "@cocoon/editor": "0.100.0",
     "prettier": "1.18.2"
   },
   "prettier": {
@@ -14,6 +14,7 @@
   },
   "scripts": {
     "example:simple-api": "cocoon-editor examples/simple-api/cocoon.yml",
-    "example:custom-nodes": "cocoon-editor examples/custom-nodes/cocoon.yml"
+    "example:custom-nodes": "cocoon-editor examples/custom-nodes/cocoon.yml",
+    "example:brushing-and-linking": "cocoon-editor examples/brushing-and-linking/cocoon.yml"
   }
 }

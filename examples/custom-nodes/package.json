@@ -15,14 +15,14 @@
     ]
   },
   "dependencies": {
-    "@cocoon/plugin-distance": "0.99.0",
-    "@cocoon/plugin-echarts": "0.99.0",
+    "@cocoon/plugin-distance": "0.100.0",
+    "@cocoon/plugin-echarts": "0.100.0",
     "got": "9.6.0"
   },
   "devDependencies": {
-    "@cocoon/rollup": "0.99.0",
-    "@cocoon/types": "0.99.0",
-    "@types/got": "9.6.4"
+    "@cocoon/rollup": "0.100.0",
+    "@cocoon/types": "0.100.0",
+    "@types/got": "9.6.5"
   },
   "scripts": {
     "build": "rollup --config rollup.config.js"
