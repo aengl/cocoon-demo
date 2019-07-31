@@ -93,6 +93,10 @@ While there's no step-by-step tutorial for Cocoon, the examples are generally fi
 
    By linking different visualisations on the same data together, brushing becomes a powerful data exploration tool.
 
+### Documentation
+
+A reference documentation for nodes and views [can be found here](https://cocoon-docs.aen.now.sh).
+
 ## Why Cocoon?
 
 Cocoon was initially developed for internal purposes only. Even when working with a small team of data scientists, data processing scripts are often hard to read and even more difficult to maintain. For many projects, one ends up having to make sense of a clutter of Python and Bash scripts, Excel sheets and Databases on various servers.
