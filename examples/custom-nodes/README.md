@@ -1,6 +1,6 @@
 # Custom Nodes and Views
 
-This example queries [Studio Ghibli](https://en.wikipedia.org/wiki/Studio_Ghibli) movies from ghibliapi.herokuapp.com and attempts to grab the movie's poster image using the Wikipedia API. The images are then rendered into a custom view.
+This example queries [Studio Ghibli](https://en.wikipedia.org/wiki/Studio_Ghibli) movies from [ghibliapi.herokuapp.com](ghibliapi.herokuapp.com) and attempts to grab the movie's poster image using the Wikipedia API. The images are then rendered into a custom view.
 
 ## Usage
 
