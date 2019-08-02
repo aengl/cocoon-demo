@@ -15,13 +15,14 @@
     ]
   },
   "dependencies": {
-    "@cocoon/plugin-distance": "0.100.0",
-    "@cocoon/plugin-echarts": "0.100.0",
+    "@cocoon/plugin-distance": "0.101.0",
+    "@cocoon/plugin-echarts": "0.101.0",
+    "@cocoon/util": "0.101.0",
     "got": "9.6.0"
   },
   "devDependencies": {
-    "@cocoon/rollup": "0.100.0",
-    "@cocoon/types": "0.100.0",
+    "@cocoon/rollup": "0.101.0",
+    "@cocoon/types": "0.101.0",
     "@types/got": "9.6.5"
   },
   "scripts": {

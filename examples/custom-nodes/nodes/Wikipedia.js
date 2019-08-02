@@ -5,6 +5,8 @@
 
 const _ = require('lodash');
 const got = require('got');
+const processTemporaryNode = require('@cocoon/util/processTemporaryNode')
+  .default;
 
 module.exports.Wikipedia = {
   category: 'I/O',
@@ -76,18 +78,26 @@ module.exports.Wikipedia = {
        * nodes are really just functions). That way you can avoid building and
        * repeating and overly complex graphs in the Cocoon editor itself.
        */
-      const result = await context.processTemporaryNode('Distance', {
-        affluent: pageInfo.images.map(x => ({ title: x.title })),
-        attribute: 'related',
-        data: [{ title: data[i].title }],
-        metrics: {
-          title: { type: 'String' },
+      const distanceResults = {};
+      for await (const progress of processTemporaryNode(
+        context,
+        'Distance',
+        {
+          affluent: pageInfo.images.map(x => ({ title: x.title })),
+          attribute: 'related',
+          data: [{ title: data[i].title }],
+          metrics: {
+            title: { type: 'String' },
+          },
         },
-      });
-      const bestImage = result.data[0].related[0].title;
+        distanceResults
+      )) {
+        yield;
+      }
+      const bestImage = distanceResults.data[0].related[0].title;
       context.debug(
         `calculated title distances, best match is: ${bestImage}`,
-        result
+        distanceResults
       );
 
       // Example query:

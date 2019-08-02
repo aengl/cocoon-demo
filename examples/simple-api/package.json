@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
-    "@cocoon/plugin-echarts": "0.100.0",
-    "@cocoon/plugin-inspect": "0.100.0"
+    "@cocoon/plugin-echarts": "0.101.0",
+    "@cocoon/plugin-inspect": "0.101.0"
   }
 }
