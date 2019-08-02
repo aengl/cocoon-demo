@@ -46,8 +46,4 @@ nodes:
           [x.parameter]: x.value,
         })
     type: Map
-    view: Scatterplot
-    viewState:
-      tooltip:
-        - city
-      'y': o3
+    view: out/data/Scatterplot
