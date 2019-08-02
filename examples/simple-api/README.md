@@ -36,6 +36,16 @@ Cocoon comes with many ways of inspecting data, but try the following three:
 
 The example shows how you can easily query an open API ([OpenAQ](https://openaq.org/)) for air quality measurements and inspect/plot the data.
 
+```yml
+DataFromAPI:
+  type: ReadJSON
+  persist: true
+  in:
+    uri: 'https://api.openaq.org/v1/measurements?limit=10000&country=CH'
+```
+
+The built-in `ReadJSON` supports local files as well as parsing a response body via a URI. The `persist` attribute tells Cocoon to create a persistant cache (it will write a JSON file), so we don't have to query the API again when reloading.
+
 The API returns an object wrapping the data points, so we connect the `data` port of the `ReadJSON` node to a `Map` node to help us extract the data array. Let's disect this node's declaration. Click on its title (`ExtractResults`) and the editor will jump to the node as it is defined in the `cocoon.yml`.
 
 ```yml
