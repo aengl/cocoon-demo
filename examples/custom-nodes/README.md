@@ -6,8 +6,14 @@ This example queries [Studio Ghibli](https://en.wikipedia.org/wiki/Studio_Ghibli
 
 Start the Cocoon editor from the root directory of this repository using:
 
-```
+```sh
 npm run example:custom-nodes
+```
+
+When making changes to the React components, they need to be bundled again using:
+
+```sh
+npm run build
 ```
 
 ## Custom Nodes
@@ -25,11 +31,8 @@ When loading a definition file, Cocoon builds a registry of nodes and views. We 
 
 ```json
 {
-  ...
   "cocoon": {
-    "nodes": [
-      "nodes/ExampleNode.js"
-    ]
+    "nodes": ["nodes/ExampleNode.js"]
   }
 }
 ```
@@ -100,7 +103,6 @@ Lastly, Cocoon needs to know where to find the view. So our `package.json` needs
 
 ```json
 {
-  ...
   "cocoon": {
     "views": [
       {

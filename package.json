@@ -13,6 +13,8 @@
     "trailingComma": "es5"
   },
   "scripts": {
+    "postinstall": "npm run build",
+    "build": "(cd examples/custom-nodes && npm run build)",
     "example:simple-api": "cocoon-editor examples/simple-api/cocoon.yml",
     "example:custom-nodes": "cocoon-editor examples/custom-nodes/cocoon.yml",
     "example:brushing-and-linking": "cocoon-editor examples/brushing-and-linking/cocoon.yml"

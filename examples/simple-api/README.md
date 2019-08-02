@@ -6,7 +6,7 @@ This example retrieves air quality measurements from OpenAQ and plots them in a 
 
 Start the Cocoon editor from the root directory of this repository using:
 
-```
+```sh
 npm run example:simple-api
 ```
 
