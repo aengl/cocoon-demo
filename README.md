@@ -81,15 +81,15 @@ If you want to create a new workflow, simply create an empty `.yml` file and poi
 
 While there's no step-by-step tutorial for Cocoon, the examples are generally filled with documentation that try and explain various concepts and are all aimed at beginners. They can technically be studied in any order, but some of the basisc are only explained in the simpler examples, to avoid repetition. The recommended order is:
 
-1. [simple-api](/simple-api)
+1. [simple-api](/examples/simple-api)
 
    Teaches the basics of creating a custom dataflow by querying an API, along with re-shaping, inspecting and visualising the data.
 
-1. [custom-nodes](/custom-nodes)
+1. [custom-nodes](/examples/custom-nodes)
 
    Shows how custom nodes and views can be implemented in Cocoon using Javascript and React.
 
-1. [brushing-and-linking](/brushing-and-linking)
+1. [brushing-and-linking](/examples/brushing-and-linking)
 
    By linking different visualisations on the same data together, brushing becomes a powerful data exploration tool.
 
