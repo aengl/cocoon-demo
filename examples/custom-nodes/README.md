@@ -1,3 +1,125 @@
 # Custom Nodes and Views
 
-This example queries Ghibli movies from ghibliapi.herokuapp.com and attempts to grab the movie's poster image using the Wikipedia API. The images are then rendered into a custom view.
+This example queries [Studio Ghibli](https://en.wikipedia.org/wiki/Studio_Ghibli) movies from ghibliapi.herokuapp.com and attempts to grab the movie's poster image using the Wikipedia API. The images are then rendered into a custom view.
+
+## Usage
+
+Start the Cocoon editor from the root directory of this repository using:
+
+```
+npm run example:custom-nodes
+```
+
+## Custom Nodes
+
+To introduce custom nodes, let's pick a random movie from the data queried via the API. We define our custom node in the `cocoon.yml` like this:
+
+```yml
+YouShouldWatch:
+  type: ExampleNode
+  in:
+    data: 'cocoon://DataFromAPI/out/data'
+```
+
+When loading a definition file, Cocoon builds a registry of nodes and views. We just have to tell it where it can find the custom `ExampleNode` type in the `package.json`:
+
+```json
+{
+  ...
+  "cocoon": {
+    "nodes": [
+      "nodes/ExampleNode.js"
+    ]
+  }
+}
+```
+
+The JS file essentially just exports an object that wraps a function. Have a look at the [ExampleNode.js](nodes/ExampleNode.js) for a more in-depth explanation. Here is the bare essentials:
+
+```js
+// nodes/ExampleNode.js
+
+const _ = require('lodash');
+
+module.exports.ExampleNode = {
+  in: {
+    data: {},
+  },
+
+  async *process(context) {
+    const { data } = context.ports.read();
+    const randomItem = _.sample(data);
+    return `You should watch ${randomItem.title}!`;
+  },
+};
+```
+
+**⚠️Important**: Make sure that the export name matches the type name.
+
+But that node isn't very useful. The more practical example is [Wikipedia.js](nodes/Wikipedia.js), a node that queries the Wikipedia items so we can add some images to our Ghibli movies. Again, refer to the code documentation for details.
+
+## Custom Views
+
+What if we wanted to preview the images right in Cocoon?
+
+Views are conceptually quite similar to nodes. Like nodes they attach to a port and grab its data. But they then render it into a React DOM to provide interactive visualisations. Nodes are agnostic of their attached views, and vice-versa, so in principle any view can be combined with any node. Though in practice, some views may be tailored specifically to the output of a certain node.
+
+On a technical level, though, views are quite a bit more complicated. Since data processing in Cocoon happens in a Node.js backend process, but rendering in the browser, the browser has no direct access to the data. A view has therefore two components: a Node.js module (very similar to the one of nodes) that serialises the data to return only what's necessary for the view, as to minimize the inter-process communication overhead.
+
+In the simplest case, we just return the entire data (which is unproblematic for small datasets like the one we're using):
+
+```js
+// views/Gallery.js
+
+module.exports.Gallery = {
+  serialiseViewData: async (context, data, state) => data,
+};
+```
+
+That being done, we need an actual React component to do the rendering.
+
+```jsx
+// components/Gallery.tsx
+
+import React from 'react';
+
+export const Gallery = ({ isPreview, viewData }) => (
+  <>
+    {viewData.map(item => (
+      <img key={item.title} src={item.wikipedia.imageinfo[0].url} />
+    ))}
+  </>
+);
+```
+
+Since that one lives in the browser, it has to be bundled up as well. Cocoon provides a customised [`rollup.js`](https://rollupjs.org/) configuration, see [rollup.config.js](rollup.config.js) for details.
+
+We'll also want to add some styling. Check the code documentation for [components/Gallery.jsx](components/Gallery.jsx) to see how that works.
+
+Lastly, Cocoon needs to know where to find the view. So our `package.json` needs a small update:
+
+```json
+{
+  ...
+  "cocoon": {
+    "views": [
+      {
+        "module": "views/Gallery.js",
+        "component": "dist/components.js"
+      }
+    ]
+  }
+}
+```
+
+To avoid having to create a bundle for each view, this example uses an [index module](views/index.js) to export all views in one module. Cocoon will detect multiple exported nodes and views as long as their export names match the type names.
+
+This may seem like a lot of things, but once the boilerplate is taken care of, adding a new view is a matter of minutes.
+
+## In Summary
+
+Nodes and views are simple Javascript objects wrapping a function, with views having an additional React component that renders the data.
+
+Cocoon's extensibility is one of its main features and writing custom nodes is the only way to create useful and elegant automation workspaces. While the list of built-in nodes is steadily growing, there's always some business logic that is unique to your particular use-case.
+
+There's more advances scenarios such as node-view communication in order to create filters visually through a view. They will be introduced bit by bit in other examples, such as [Brushing & Linking](../brushing-and-linking).
