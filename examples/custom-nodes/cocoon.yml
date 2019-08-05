@@ -1,17 +1,11 @@
 nodes:
   AddWikipediaData:
-    editor:
-      col: 2
-      row: 0
     in:
       data: 'cocoon://MapData/out/data'
     persist: true
     type: Wikipedia
     view: Gallery
   DataFromAPI:
-    editor:
-      col: 0
-      row: 0
     in:
       uri: 'https://ghibliapi.herokuapp.com/films'
     type: ReadJSON
@@ -19,8 +13,6 @@ nodes:
     editor:
       actions:
         Browse: open images
-      col: 3
-      row: 0
     in:
       data: 'cocoon://AddWikipediaData/out/data'
       map: |
@@ -31,9 +23,6 @@ nodes:
       target: images
     type: Download
   MapData:
-    editor:
-      col: 1
-      row: 0
     in:
       data: 'cocoon://DataFromAPI/out/data'
       map: |
@@ -49,9 +38,6 @@ nodes:
         - title
         - director
   YouShouldWatch:
-    editor:
-      col: 1
-      row: 1
     in:
       data: 'cocoon://DataFromAPI/out/data'
     type: ExampleNode

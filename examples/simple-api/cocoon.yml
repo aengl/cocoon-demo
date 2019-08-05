@@ -1,9 +1,6 @@
 nodes:
   DataFromAPI:
     '?': 'Query OpenAQ. See: https://docs.openaq.org/#api-Measurements'
-    editor:
-      col: 0
-      row: 0
     in:
       uri: 'https://api.openaq.org/v1/measurements?limit=10000&country=CH'
     persist: true
@@ -12,18 +9,12 @@ nodes:
     '?': >-
       The API returns an object, but we're only interested in the result array
       with measurements.
-    editor:
-      col: 1
-      row: 0
     in:
       data: 'cocoon://DataFromAPI/out/data'
       map: x => x.results
     type: Map
   InspectFirstItem:
     '?': Inspect the first datapoint.
-    editor:
-      col: 2
-      row: 1
     in:
       data: 'cocoon://ExtractResults/out/data'
       filter: '(x, i) => i === 0'
@@ -33,9 +24,6 @@ nodes:
       expandLevel: 3
   MapValues:
     '?': Reshape and plot the data.
-    editor:
-      col: 2
-      row: 0
     in:
       data: 'cocoon://ExtractResults/out/data'
       map: |

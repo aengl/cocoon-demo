@@ -1,8 +1,5 @@
 nodes:
   ClickFirstResult:
-    editor:
-      col: 4
-      row: 0
     in:
       args:
         selector: '#res a'
@@ -11,17 +8,11 @@ nodes:
     type: Puppeteer
     view: Image
   CloseBrowser:
-    editor:
-      col: 5
-      row: 0
     in:
       context: 'cocoon://ClickFirstResult/out/context'
       path: close.js
     type: Puppeteer
   Navigate:
-    editor:
-      col: 1
-      row: 0
     in:
       args:
         url: 'https://www.google.com/'
@@ -30,9 +21,6 @@ nodes:
     type: Puppeteer
     view: Image
   OpenBrowser:
-    editor:
-      col: 0
-      row: 0
     in:
       args:
         headless: false
@@ -40,18 +28,12 @@ nodes:
     type: Puppeteer
     view: Image
   ReadTitle:
-    editor:
-      col: 2
-      row: 0
     in:
       context: 'cocoon://Navigate/out/context'
       path: title.js
     type: Puppeteer
     view: Image
   Search:
-    editor:
-      col: 3
-      row: 0
     in:
       args:
         return: true
@@ -63,7 +45,6 @@ nodes:
     view: Image
   TestTitle:
     editor:
-      col: 3
       row: 1
     in:
       data: 'cocoon://ReadTitle/out/context'
