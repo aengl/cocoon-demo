@@ -1,0 +1,25 @@
+{
+  "name": "example-testing",
+  "private": true,
+  "version": "1.0.0",
+  "cocoon": {
+    "nodes": [
+      "nodes/Assert.js",
+      "nodes/Puppeteer.js"
+    ]
+  },
+  "dependencies": {
+    "@cocoon/plugin-views": "0.102.0",
+    "@cocoon/testing": "0.102.0",
+    "@cocoon/util": "0.102.0",
+    "ava": "2.2.0",
+    "puppeteer": "1.19.0"
+  },
+  "devDependencies": {
+    "@types/puppeteer": "1.19.0"
+  },
+  "scripts": {
+    "build": "rollup --config rollup.config.js",
+    "test": "ava"
+  }
+}

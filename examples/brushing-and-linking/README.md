@@ -12,9 +12,7 @@ npm run example:brushing-and-linking
 
 ## Highlight Sync
 
-Like in the [simple-api](../simple-api) example we query an open API, extract the data and visualise it in a scatter plot. So far, nothing new.
-
-We then visualise fish images in a Gallery, using the built-in component (which is very similar to the one we custom-built in the [custom-nodes](../custom-nodes) example).
+Like in the [simple-api](../simple-api) example we query an open API, extract the data and visualise it in a scatter plot. So far, nothing new. We then visualise fish images in a gallery, using the built-in component (which is very similar to the one we custom-built in the [custom-nodes](../custom-nodes) example).
 
 But it gets interesting once we open both views.
 
