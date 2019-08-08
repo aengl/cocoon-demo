@@ -37,7 +37,7 @@ nodes:
     in:
       args:
         return: true
-        selector: 'input[title="Search"]'
+        selector: 'input[name="q"]'
         text: github aengl cocoon
       context: 'cocoon://ReadTitle/out/context'
       path: search.js
