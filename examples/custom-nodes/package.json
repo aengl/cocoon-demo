@@ -9,20 +9,21 @@
     ],
     "views": [
       {
-        "module": "views/index.js",
-        "component": "dist/components.js"
+        "module": "views/Gallery.js",
+        "component": "dist/GalleryComponent.js"
       }
     ]
   },
   "dependencies": {
-    "@cocoon/plugin-distance": "0.102.0",
-    "@cocoon/plugin-echarts": "0.102.0",
-    "@cocoon/util": "0.102.0",
+    "@cocoon/plugin-distance": "0.103.0",
+    "@cocoon/plugin-echarts": "0.103.0",
+    "@cocoon/util": "0.103.0",
     "got": "9.6.0"
   },
   "devDependencies": {
-    "@cocoon/rollup": "0.102.0",
-    "@cocoon/types": "0.102.0",
+    "@cocoon/editor": "0.103.0",
+    "@cocoon/rollup": "0.103.0",
+    "@cocoon/types": "0.103.0",
     "@types/got": "9.6.5"
   },
   "scripts": {

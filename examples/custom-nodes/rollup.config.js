@@ -1,8 +1,9 @@
 import { createComponentConfig } from '@cocoon/rollup';
 
 /**
- * Cocoon provides a pre-configured bundling setup for views.
+ * Cocoon provides various helpers for generating bundling configuration.
  *
- * It bundles `components/index.ts` into `dist/components.js` using `rollup`.
+ * In this case we use a helper that generates the rollup configuration for a
+ * single component.
  */
-export default createComponentConfig();
+export default createComponentConfig('Gallery');

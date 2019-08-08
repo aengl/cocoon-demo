@@ -27,6 +27,8 @@ YouShouldWatch:
     data: 'cocoon://DataFromAPI/out/data'
 ```
 
+![](screenshot.png)
+
 When loading a definition file, Cocoon builds a registry of nodes and views. We just have to tell it where it can find the custom `ExampleNode` type in the `package.json`:
 
 ```json
@@ -95,7 +97,7 @@ export const Gallery = ({ isPreview, viewData }) => (
 );
 ```
 
-Since that one lives in the browser, it has to be bundled up as well. Cocoon provides a customised [`rollup.js`](https://rollupjs.org/) configuration, see [rollup.config.js](rollup.config.js) for details.
+Since it contains [JSX](https://reactjs.org/docs/introducing-jsx.html) it has to be transpiled, so we do that using [TypeScript](https://www.typescriptlang.org/). Since the code will end up in a browser, it has to be bundled up as well. Cocoon provides a customised [`rollup.js`](https://rollupjs.org/) configuration, see [rollup.config.js](rollup.config.js) for details.
 
 We'll also want to add some styling. Check the code documentation for [components/Gallery.jsx](components/Gallery.jsx) to see how that works.
 
@@ -107,16 +109,86 @@ Lastly, Cocoon needs to know where to find the view. So our `package.json` needs
     "views": [
       {
         "module": "views/Gallery.js",
-        "component": "dist/components.js"
+        "component": "dist/GalleryComponent.js"
       }
     ]
   }
 }
 ```
 
-To avoid having to create a bundle for each view, this example uses an [index module](views/index.js) to export all views in one module. Cocoon will detect multiple exported nodes and views as long as their export names match the type names.
+## Debugging
 
-This may seem like a lot of things, but once the boilerplate is taken care of, adding a new view is a matter of minutes.
+Your custom nodes and views can be debugged by attaching to Cocoon's Node.js process on port `9340`.
+
+![](screenshot-debug.png)
+
+For convenience, this example repository includes a [launch configuration](../../.vscode/launch.json) for [Visual Studio Code](https://code.visualstudio.com/) .
+
+## Typings
+
+Cocoon itself is written in [TypeScript](https://www.typescriptlang.org/), and therefore has first-class support for TypeScript typings. In the near future we will have a dedicated example, but in the meantime, here is how you add typings:
+
+### Nodes
+
+```ts
+import { CocoonNode } from '@cocoon/types';
+
+export interface Ports {
+  data: unknown;
+}
+
+export const Meaning: CocoonNode<Ports> = {
+  in: {
+    data: { required: true },
+  },
+
+  async *process(context) {
+    const { data } = context.ports.read();
+    return data === 42 ? `Found meaning` : `Meaningless`;
+  },
+};
+```
+
+### Views
+
+```ts
+// views/Meaning.ts
+
+import { CocoonView, CocoonViewProps } from '@cocoon/types';
+
+// The view outputs a string
+export type ViewData = string;
+
+// The view state type
+export interface ViewState {
+  foo: number;
+}
+
+// React props which we will use in the view component
+export type Props = CocoonViewProps<ViewData, ViewState>;
+
+export const Meaning: CocoonView<Data, ViewState> = {
+  serialiseViewData: async (context, data: object[], state) => {
+    return state.foo === 42
+      ? 'the meaning of life'
+      : 'the universe and everything';
+  },
+};
+```
+
+### View Components
+
+```tsx
+// components/Meaning.tsx
+
+import React from 'react';
+import { Props, ViewState } from '../views/Meaning.ts';
+
+export const Inspector = (props: Props) => {
+  const { isPreview, viewData, viewState } = props;
+  return <h1>{viewData}</h1>;
+};
+```
 
 ## In Summary
 
