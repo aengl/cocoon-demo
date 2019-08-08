@@ -21,7 +21,7 @@
     "got": "9.6.0"
   },
   "devDependencies": {
-    "@cocoon/editor": "0.103.0",
+    "@cocoon/editor": "0.103.1",
     "@cocoon/rollup": "0.103.0",
     "@cocoon/types": "0.103.0",
     "@types/got": "9.6.5"
