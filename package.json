@@ -6,7 +6,6 @@
   ],
   "devDependencies": {
     "@cocoon/editor": "0.101.0",
-    "lodash": "4.17.15",
     "prettier": "1.18.2"
   },
   "prettier": {
