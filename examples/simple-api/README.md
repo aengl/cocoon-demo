@@ -1,6 +1,6 @@
 # A Simple API Example
 
-This example retrieves air quality measurements from OpenAQ and plots them in a scatter plot using ECharts. Only built-in nodes are used.
+This example retrieves earthquake data from the USGS and plots them in a scatter plot using ECharts. Only built-in nodes are used.
 
 ## Usage
 
@@ -32,28 +32,28 @@ Cocoon comes with many ways of inspecting data, but try the following three:
 
 - Click the `InspectFirstItem` node. Once processed, the `Inspector` visualisation attached to the node will give you a tree view of the data, similar to the browser's inspector. You can interact with it in the summary or choose `Open View` via the context menu.
 
-## Visualising Air Quality
+## Visualising Earthquakes
 
-The example shows how you can easily query an open API ([OpenAQ](https://openaq.org/)) for air quality measurements and inspect/plot the data.
+The example shows how you can easily query an [open API](https://earthquake.usgs.gov/fdsnws/event/1/) for earthquake data and inspect/plot the data.
 
 ```yml
 DataFromAPI:
   type: ReadJSON
   persist: true
   in:
-    uri: 'https://api.openaq.org/v1/measurements?limit=10000&country=CH'
+    uri: 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-02-15&endtime=2019-02-22'
 ```
 
 The built-in `ReadJSON` supports local files as well as parsing a response body via a URI. The `persist` attribute tells Cocoon to create a persistant cache (it will write a JSON file), so we don't have to query the API again when reloading.
 
-The API returns an object wrapping the data points, so we connect the `data` port of the `ReadJSON` node to a `Map` node to help us extract the data array. Let's disect this node's declaration. Click on its title (`ExtractResults`) and the editor will jump to the node as it is defined in the `cocoon.yml`.
+The API returns an object wrapping the features, so we connect the `data` port of the `ReadJSON` node to a `Map` node to help us extract the feature array. Let's disect this node's declaration. Click on its title (`ExtractResults`) and the editor will jump to the node as it is defined in the `cocoon.yml`.
 
 ```yml
 ExtractResults:
   type: Map
   in:
     data: 'cocoon://DataFromAPI/out/data'
-    map: x => x.results
+    map: x => x.features
 ```
 
 `ExtractResults` is a unique identifier for the node. Every node has a `type`, which links this node to an implementation (essentially a function mapping input ports to output ports).
@@ -69,9 +69,11 @@ MapValues:
   type: Map
   view: Scatterplot
   viewState:
-    y: o3
+    x: tz
+    y: mag
+    id: title
     tooltip:
-      - city
+      - date
 ```
 
 The `view` attribute is similar to `type` but attaches an implementation for a visualisation instead. Each visualisation has a default port, which is usually the output `data` port, but we can re-write it to the more explicit form:
@@ -80,7 +82,7 @@ The `view` attribute is similar to `type` but attaches an implementation for a v
 view: out/data/Scatterplot
 ```
 
-The `viewState` attributes configures the view (and is updated automatically when interacting with the view). In this case, we define what dimension to plot along the scatter plot's Y axis and define an additional dimension to be shown in the tooltip, when hovering a data point.
+The `viewState` attributes configures the view (and is updated automatically when interacting with the view). In this case, we define what dimension to plot along the scatter plot's X and Y axis and define an additional dimension to be shown in the tooltip, when hovering a data point.
 
 ## Experiment!
 

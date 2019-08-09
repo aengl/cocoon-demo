@@ -1,17 +1,18 @@
 nodes:
   DataFromAPI:
-    '?': 'Query OpenAQ. See: https://docs.openaq.org/#api-Measurements'
+    '?': 'Query USGS API. See: https://earthquake.usgs.gov/fdsnws/event/1/'
     in:
-      uri: 'https://api.openaq.org/v1/measurements?limit=10000&country=CH'
+      uri: >-
+        https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-02-15&endtime=2019-02-22
     persist: true
     type: ReadJSON
   ExtractResults:
     '?': >-
-      The API returns an object, but we're only interested in the result array
-      with measurements.
+      The API returns an object, but we're only interested in the features array
+      containing the earthquake data.
     in:
       data: 'cocoon://DataFromAPI/out/data'
-      map: x => x.results
+      map: x => x.features
     type: Map
   InspectFirstItem:
     '?': Inspect the first datapoint.
@@ -24,18 +25,23 @@ nodes:
       expandLevel: 3
   MapValues:
     '?': Reshape and plot the data.
+    editor:
+      actions:
+        Open Data Documentation: 'open https://earthquake.usgs.gov/data/comcat/data-eventterms.php'
     in:
       data: 'cocoon://ExtractResults/out/data'
       map: |
         x => ({
-          city: x.city,
-          daysAgo: (new Date(x.date.local).getTime() - Date.now()) / 86400000,
-          location: x.location,
-          [x.parameter]: x.value,
+          ...x.properties,
+          date: new Date(x.properties.time)
         })
     type: Map
     view: Scatterplot
     viewState:
+      color: sig
+      id: title
+      size: tsunami
       tooltip:
-        - city
-      'y': o3
+        - date
+      x: tz
+      'y': mag
