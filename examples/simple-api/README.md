@@ -84,6 +84,8 @@ view: out/data/Scatterplot
 
 The `viewState` attributes configures the view (and is updated automatically when interacting with the view). In this case, we define what dimension to plot along the scatter plot's X and Y axis and define an additional dimension to be shown in the tooltip, when hovering a data point.
 
+:information_source: You might have noticed that the data changes slightly in the preview when clicking the node multiple times. That's because most preview nodes sample the data to make sure that the editor is fast and responsive.
+
 ## Experiment!
 
 This concludes the example. Feel free to expand the graph. Just drag and drop a line from the port to an empty tile and choose a node type and port to create and connect. You could, for example, write the data to disk using a `WriteJSON` node.
