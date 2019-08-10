@@ -44,7 +44,7 @@ DataFromAPI:
     uri: 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2019-02-15&endtime=2019-02-22'
 ```
 
-The built-in `ReadJSON` supports local files as well as parsing a response body via a URI. The `persist` attribute tells Cocoon to create a persistant cache (it will write a JSON file), so we don't have to query the API again when reloading.
+The built-in `ReadJSON` node supports local files as well as parsing a response body via a URI. The `persist` attribute tells Cocoon to create a persistant cache (it will write a JSON file), so we don't have to query the API again when reloading.
 
 The API returns an object wrapping the features, so we connect the `data` port of the `ReadJSON` node to a `Map` node to help us extract the feature array. Let's disect this node's declaration. Click on its title (`ExtractResults`) and the editor will jump to the node as it is defined in the `cocoon.yml`.
 
@@ -58,11 +58,11 @@ ExtractResults:
 
 `ExtractResults` is a unique identifier for the node. Every node has a `type`, which links this node to an implementation (essentially a function mapping input ports to output ports).
 
-The input modes are defined in `in`. A port can either have its data statically typed into the `cocoon.yml`, as is the case with `map`. Here we define a JS callback that re-shapes the data, such that the results attribute is exposed, which contains the array of measurements.
+The input ports are defined in `in`. A port can be configured statically in `cocoon.yml`, as is the case with `map`. Here we define a JS callback that re-shapes the data, such that the `results` attribute is exposed, which contains the array of measurements.
 
-Alternatively, a port can receive a Cocoon URI of the form `cocoon://<nodeID>/out/<portName>`. In this case, the data for that port is pulled from the output port of another node. In the editor, a line is drawn connecting the two ports.
+Alternatively, a port can receive a Cocoon URI of the form `cocoon://<nodeID>/out/<portName>`. In this case, the configuration for that port is pulled from the output port of another node. In the editor, a line is drawn connecting the two ports.
 
-In a similar fashion, the rightmost `MapValues` nodes re-shapes the data to be more plotting friendly. But more interestingly, let's look at the following:
+In a similar fashion, the rightmost `MapValues` node re-shapes the data to be more plotting friendly. But more interestingly, let's look at the following:
 
 ```yml
 MapValues:
