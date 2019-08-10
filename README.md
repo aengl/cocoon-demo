@@ -13,8 +13,6 @@ Design goals for Cocoon are:
 
 ## Features
 
-Here's a visual rundown of Cocoon's main functionality:
-
 ### Define a Dataflow in YAML
 
 ![](/resources/import.gif)
@@ -69,7 +67,7 @@ Follow these instructions to run the examples in this repository, or to build yo
 
 1. Install the dependencies by running `npm install` or `yarn`.
 
-1. Run any of the examples. To learn the basics, it is recommended to start with:
+1. Run any of the examples. To learn the basics, it is recommended to start with the [Simple API](/examples/simple-api) example by running:
 
    ```sh
    npm run example:simple-api
