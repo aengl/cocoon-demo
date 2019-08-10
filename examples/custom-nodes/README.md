@@ -16,6 +16,8 @@ When making changes to the React components, they need to be bundled again using
 npm run build
 ```
 
+> :bulb: **Hint**: If you still have Cocoon running from the first example, you can also just change the URL in your browser to point to the new demo: `/cocoon-demo/examples/custom-nodes/cocoon.yml` 
+
 ## Custom Nodes
 
 To introduce custom nodes, let's pick a random movie from the data queried via the API. We define our custom node in the `cocoon.yml` like this:
