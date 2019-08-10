@@ -10,7 +10,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 /**
- * Like nodes, Cocoon expects a named import, with the additional restriction
+ * Like nodes, Cocoon expects a named export, with the additional restriction
  * that the name of the export must match the node part of the view (see
  * `../views/Gallery.js`).
  *

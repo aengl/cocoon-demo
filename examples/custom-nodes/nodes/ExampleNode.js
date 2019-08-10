@@ -8,7 +8,7 @@
 
 /**
  * Nodes can have their own dependencies, which means you have the whole npm
- * ecosystem available to your fingertips. Just add them to your package.json
+ * ecosystem available at your fingertips. Just add them to your package.json
  * and require them like usual.
  *
  * A handful of dependencies are already included by Cocoon and don't need to be
@@ -20,7 +20,7 @@ const _ = require('lodash');
 /**
  * Note that it's necessary that nodes are named exports. The name of the export
  * determines the name of the node. The filename is irrelevant, and it's
- * possible to export multiple nodes per file.
+ * possible to export multiple nodes from one file.
  */
 module.exports.ExampleNode = {
   /**
@@ -35,7 +35,7 @@ module.exports.ExampleNode = {
   description: `A custom Cocoon node that picks a random item from the data, for demonstration purposes.`,
 
   /**
-   * The input ports. This tells the editor what node are available and can be
+   * The input ports. This tells the editor what ports are available and can be
    * used to attach various meta information to the port.
    */
   in: {
@@ -57,13 +57,13 @@ module.exports.ExampleNode = {
    * This is the most important part of the node. Like the name of the function
    * implies, this is where the actual data processing happens.
    *
-   * The node receives a context objects that contains the entire graph, the
+   * The node receives a context object that contains the entire graph, the
    * node registry, port interface and various other things. It encapsulates the
    * entire state of Cocoon.
    *
-   * It should always be an async generator function, even when await/yield is
-   * not used, but regular functions will work as well. We will explore these
-   * concepts later in this example.
+   * It should always be an async generator function (`async *`), even when
+   * await/yield is not used, but regular functions will work as well. We will
+   * explore these concepts later in this example.
    *
    * If you want to have a look at the typings, see `CocoonNodeContext` at:
    * https://unpkg.com/@cocoon/types/dist/index.d.ts

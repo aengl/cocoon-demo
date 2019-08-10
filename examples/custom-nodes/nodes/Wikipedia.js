@@ -74,9 +74,12 @@ module.exports.Wikipedia = {
        * distance metrics, and even combine them to form complex
        * multi-dimensional distances.
        *
-       * Cocoon nodes can use temporary nodes as part of its processing (since
+       * Cocoon nodes can use temporary nodes as part of the processing (since
        * nodes are really just functions). That way you can avoid building and
-       * repeating and overly complex graphs in the Cocoon editor itself.
+       * repeating overly complex graphs in the Cocoon editor itself.
+       *
+       * Documentation for the `Distance` node we're using is available at
+       * https://cocoon-docs.aen.now.sh/#distance
        */
       const distanceResults = {};
       for await (const progress of processTemporaryNode(
