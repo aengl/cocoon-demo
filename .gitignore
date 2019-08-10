@@ -3,6 +3,10 @@ data/
 dist/
 images/
 node_modules/
+
 _*
 *.mov
 yarn.lock
+
+!__tests__/
+!__snapshots__/
