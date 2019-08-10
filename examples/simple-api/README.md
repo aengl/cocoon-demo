@@ -16,7 +16,7 @@ Cocoon will launch a browser that will give you a visual representation of a gra
 
 Data flows from left to right, starting with unconnected nodes, and will be passed along to the connected ports. Nodes are connected via ports, which allows them to have multiple inputs and outputs.
 
-When clicking a node it will be processed, along with all connected nodes that are upstream. Try clicking the `MapValues` node to the right and you should see this:
+When clicking a node it will be processed, along with all connected nodes that are upstream. Try clicking the `MapValues` node to the right.
 
 ![](screenshot.png)
 
@@ -24,7 +24,7 @@ After processing, every node has a summary underneath, which is either a textual
 
 ## Inspecting Data
 
-Cocoon comes with many ways of inspecting data, but try the following three:
+Cocoon comes with many techniques to inspecting data, but try the following three:
 
 - Open the browser's developer tools and click on a port. You will see the data for that port in the console.
 

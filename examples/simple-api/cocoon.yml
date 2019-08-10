@@ -44,4 +44,4 @@ nodes:
       tooltip:
         - date
       x: tz
-      'y': mag
+      y: mag

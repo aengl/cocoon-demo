@@ -18,9 +18,11 @@ npm run test
 
 ## Testing Nodes
 
-Since Cocoon nodes are functions, they are particularly easy to test. The [@cocoon/testing](https://www.npmjs.com/package/@cocoon/testing) package provides a test helper that automatically creates a dummy context to make unit testing of nodes a trivial matter. Here is an example that uses [AVA](https://github.com/avajs/ava):
+Since Cocoon nodes are essentially just functions, they are particularly easy to test. The [@cocoon/testing](https://www.npmjs.com/package/@cocoon/testing) package provides a test helper that automatically creates a dummy context to make unit testing of nodes a trivial matter. Here is an example that uses [AVA](https://github.com/avajs/ava):
 
 ```js
+// MyNode.test.js
+
 import { snapshotNode } from '@cocoon/testing';
 import test from 'ava';
 import { MyNode } from './MyNode';
@@ -34,7 +36,18 @@ For a complete example, check [Assert.test.js](nodes/Assert.test.js).
 
 ## Testing Definitions
 
-Coming soon.
+When integration testing definitions we don't need the `@cocoon/testing` helper library, since we're running the definition with Cocoon itself, albeit headlessly without the editor:
+
+```js
+// test.js
+
+import { testDefinition } from '@cocoon/cocoon';
+import test from 'ava';
+
+test('runs cocoon.yml', async t => {
+  t.snapshot(await testDefinition('cocoon.yml'));
+});
+```
 
 ## End-to-end Testing in Cocoon
 
