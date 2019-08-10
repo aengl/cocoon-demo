@@ -31,7 +31,7 @@ YouShouldWatch:
 
 ![](screenshot.png)
 
-When loading a definition file, Cocoon builds a registry of nodes and views. We just have to tell it where it can find the custom `ExampleNode` type in the `package.json`:
+When loading a definition file, Cocoon builds a registry of nodes and views. We just have to tell it where it can find the custom `ExampleNode` type in the `package.json` (you'll have to open it in your local code editor):
 
 ```json
 {
@@ -61,7 +61,7 @@ module.exports.ExampleNode = {
 };
 ```
 
-**⚠️Important**: Make sure that the export name matches the type name.
+> :warning: **Important**: Make sure that the export name matches the type name.
 
 But that node isn't very useful. The more practical example is [Wikipedia.js](nodes/Wikipedia.js), a node that queries the Wikipedia items so we can add some images to our Ghibli movies. Again, refer to the code documentation for details.
 
@@ -71,7 +71,9 @@ What if we wanted to preview the images right in Cocoon?
 
 Views are conceptually quite similar to nodes. Like nodes they attach to a port and grab its data. But they then render it into a React DOM to provide interactive visualisations. Nodes are agnostic of their attached views, and vice-versa, so in principle any view can be combined with any node. Though in practice, some views may be tailored specifically to the output of a certain node.
 
-On a technical level, though, views are quite a bit more complicated. Since data processing in Cocoon happens in a Node.js backend process, but rendering in the browser, the browser has no direct access to the data. A view has therefore two components: a Node.js module (very similar to the one of nodes) that serialises the data to return only what's necessary for the view, as to minimize the inter-process communication overhead.
+On a technical level, though, views are quite a bit more complicated. Since data processing in Cocoon happens in a Node.js backend process, but rendering in the browser, the browser has no direct access to the data. A view has therefore two components: 
+- A Node.js module (very similar to the one of nodes) that serialises the data to return only what's necessary for the view, as to minimize the inter-process communication overhead.
+- A browser bundle that exports a React component
 
 In the simplest case, we just return the entire data (which is unproblematic for small datasets like the one we're using):
 
@@ -133,13 +135,15 @@ Cocoon itself is written in [TypeScript](https://www.typescriptlang.org/), and t
 ### Nodes
 
 ```ts
+// nodes/FindMeaning.ts
+
 import { CocoonNode } from '@cocoon/types';
 
 export interface Ports {
   data: unknown;
 }
 
-export const Meaning: CocoonNode<Ports> = {
+export const FindMeaning: CocoonNode<Ports> = {
   in: {
     data: { required: true },
   },
@@ -154,7 +158,7 @@ export const Meaning: CocoonNode<Ports> = {
 ### Views
 
 ```ts
-// views/Meaning.ts
+// views/ShowMeaning.ts
 
 import { CocoonView, CocoonViewProps } from '@cocoon/types';
 
@@ -169,7 +173,7 @@ export interface ViewState {
 // React props which we will use in the view component
 export type Props = CocoonViewProps<ViewData, ViewState>;
 
-export const Meaning: CocoonView<Data, ViewState> = {
+export const ShowMeaning: CocoonView<Data, ViewState> = {
   serialiseViewData: async (context, data: object[], state) => {
     return state.foo === 42
       ? 'the meaning of life'
@@ -181,12 +185,12 @@ export const Meaning: CocoonView<Data, ViewState> = {
 ### View Components
 
 ```tsx
-// components/Meaning.tsx
+// components/ShowMeaning.tsx
 
 import React from 'react';
-import { Props, ViewState } from '../views/Meaning.ts';
+import { Props, ViewState } from '../views/ShowMeaning.ts';
 
-export const Inspector = (props: Props) => {
+export const ShowMeaning = (props: Props) => {
   const { isPreview, viewData, viewState } = props;
   return <h1>{viewData}</h1>;
 };
@@ -198,4 +202,4 @@ Nodes and views are simple Javascript objects wrapping a function, with views ha
 
 Cocoon's extensibility is one of its main features and writing custom nodes is the only way to create useful and elegant automation workspaces. While the list of built-in nodes is steadily growing, there's always some business logic that is unique to your particular use-case.
 
-There's more advances scenarios such as node-view communication in order to create filters visually through a view. They will be introduced bit by bit in other examples, such as [Brushing & Linking](../brushing-and-linking).
+There's more advanced scenarios such as node-view communication in order to create filters visually through a view. They will be introduced bit by bit in other examples, such as [Brushing & Linking](../brushing-and-linking).
