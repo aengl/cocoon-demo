@@ -62,7 +62,7 @@ Follow these instructions to run the examples in this repository, or to build yo
 
 1. Install the dependencies by running `npm install` or `yarn`.
 
-1. Run any of the examples. To learn the basics, it is recommended to start with the [Simple API](/examples/simple-api) example by running:
+1. Run any of the examples. To learn the basics, we recommended that you start with the [Simple API](/examples/simple-api) example by running:
 
    ```sh
    npm run example:simple-api
@@ -72,7 +72,7 @@ If you want to create a new workflow, simply create an empty `.yml` file and poi
 
 ### Examples
 
-While there's no step-by-step tutorial for Cocoon, the examples are generally filled with documentation that try and explain various concepts and are all aimed at beginners. They can technically be studied in any order, but some of the basisc are only explained in the simpler examples, to avoid repetition. The recommended order is:
+While there's no step-by-step tutorial for Cocoon, the examples are generally filled with documentation that try and explain various concepts and are all aimed at beginners. They can technically be studied in any order, but some of the basisc are only explained in the simpler examples, to avoid repetition. Our recommended order is:
 
 1. [simple-api](/examples/simple-api)
 
