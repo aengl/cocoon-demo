@@ -2,6 +2,8 @@
 
 Cocoon is designed around task automation, but offers instant feedback through interactive visualisations, making it especially attractive for tasks involving large datasets.
 
+![](/resources/intro.png)
+
 Though tasks are defined declaratively using [YAML](https://yaml.org), Cocoon comes with a feature-rich, browser-based editor that lets users build complex automation workflows using direct manipulation.
 
 Design goals for Cocoon are:
