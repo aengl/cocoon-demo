@@ -39,7 +39,7 @@ Visualisations can be attached to nodes in order to facilitate in-depth explorat
 
 ![](/resources/scatterplot.gif)
 
-Visualisations are fully interactive and can interact with the node's state, allowing visual definitions of complex filter criteria.
+Visualisations are fully interactive and can interface with the node's state, allowing visual definitions of complex filter criteria.
 
 ![](/resources/brushing&linking.gif)
 
