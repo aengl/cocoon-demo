@@ -20,7 +20,7 @@ nodes:
         - FBname
         - image
       x: Length
-      'y': Vulnerability
+      y: Vulnerability
   FishGallery:
     in:
       data: 'cocoon://FishFilter/out/data'

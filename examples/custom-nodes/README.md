@@ -16,7 +16,9 @@ When making changes to the React components, they need to be bundled again using
 npm run build
 ```
 
-> :bulb: **Hint**: If you still have Cocoon running from the first example, you can also just change the URL in your browser to point to the new demo: `/cocoon-demo/examples/custom-nodes/cocoon.yml` 
+> :bulb: **Hint**: If you still have Cocoon running from the first example, you can also just change the URL in your browser to point to the new demo: `/cocoon-demo/examples/custom-nodes/cocoon.yml`
+
+![](screenshot.png)
 
 ## Custom Nodes
 
@@ -28,8 +30,6 @@ YouShouldWatch:
   in:
     data: 'cocoon://DataFromAPI/out/data'
 ```
-
-![](screenshot.png)
 
 When loading a definition file, Cocoon builds a registry of nodes and views. We just have to tell it where it can find the custom `ExampleNode` type in the `package.json` (you'll have to open it in your local code editor):
 
@@ -71,7 +71,8 @@ What if we wanted to preview the images right in Cocoon?
 
 Views are conceptually quite similar to nodes. Like nodes they attach to a port and grab its data. But they then render it into a React DOM to provide interactive visualisations. Nodes are agnostic of their attached views, and vice-versa, so in principle any view can be combined with any node. Though in practice, some views may be tailored specifically to the output of a certain node.
 
-On a technical level, though, views are quite a bit more complicated. Since data processing in Cocoon happens in a Node.js backend process, but rendering in the browser, the browser has no direct access to the data. A view has therefore two components: 
+On a technical level, though, views are quite a bit more complicated. Since data processing in Cocoon happens in a Node.js backend process, but rendering in the browser, the browser has no direct access to the data. A view has therefore two components:
+
 - A Node.js module (very similar to the one of nodes) that serialises the data to return only what's necessary for the view, as to minimize the inter-process communication overhead.
 - A browser bundle that exports a React component
 

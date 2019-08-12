@@ -10,6 +10,8 @@ Start the Cocoon editor from the root directory of this repository using:
 npm run example:brushing-and-linking
 ```
 
+![](screenshot.png)
+
 ## Highlight Sync
 
 Like in the [simple-api](../simple-api) example we query an open API, extract the data and visualise it in a scatter plot. So far, nothing new. We then visualise fish images in a gallery, using the built-in component (which is very similar to the one we custom-built in the [custom-nodes](../custom-nodes) example).
@@ -17,6 +19,8 @@ Like in the [simple-api](../simple-api) example we query an open API, extract th
 But it gets interesting once we open both views.
 
 Put them side-by-side and hover an item in the scatter plot. The image of the fish will appear in the Gallery. This is a feature called "Highlight Sync". Cocoon broadcasts information about a highlighted item to all views, and each view can choose to respond with a meaningful action (which can, of course, be customised).
+
+![](screenshot-sync.png)
 
 In this particular scenario, the trick is to choose the image attribute as part of the tooltip information:
 
@@ -40,6 +44,8 @@ When the Gallery receives highlight information, it scans it for image URLs and 
 ## Filtering via Brushing
 
 Note that at the top of the scatter plot you have some toolbox items that you can select. You might not have noticed, but those weren't available in the [simple-api](../simple-api) example. Choosing the first tool allows us to draw a rectangle and only the contained data points will be shown in the gallery.
+
+![](screenshot-brush.png)
 
 What's going on?
 
