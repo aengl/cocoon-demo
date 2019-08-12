@@ -78,13 +78,17 @@ While there's no step-by-step tutorial for Cocoon, the examples are generally fi
 
    Teaches the basics of creating a custom dataflow by querying an API, along with re-shaping, inspecting and visualising the data.
 
-1. [custom-nodes](/examples/custom-nodes)
-
-   Shows how custom nodes and views can be implemented in Cocoon using Javascript and React.
-
 1. [brushing-and-linking](/examples/brushing-and-linking)
 
    By linking different visualisations on the same data together, brushing becomes a powerful data exploration tool.
+
+1. [custom-nodes](/examples/custom-nodes)
+
+   Shows how custom nodes and views can be implemented in Cocoon using Javascript and [React](https://reactjs.org/). It also provides some templates for writing nodes and views in [TypeScript](https://www.typescriptlang.org/), and a brief note on how to debug nodes.
+
+1. [testing](/examples/testing)
+
+   Examples for unit-testing nodes, integration-testing entire Cocoon definition files, and how Cocoon itself can be used for end-to-end testing.
 
 ### Documentation
 
