@@ -4,13 +4,13 @@
   "version": "1.0.0",
   "cocoon": {
     "nodes": [
-      "nodes/ExampleNode.js",
-      "nodes/Wikipedia.js"
+      "nodes/ExampleNode",
+      "nodes/Wikipedia"
     ],
     "views": [
       {
-        "module": "views/Gallery.js",
-        "component": "dist/GalleryComponent.js"
+        "module": "views/Gallery",
+        "component": "dist/GalleryComponent"
       }
     ]
   },

@@ -36,7 +36,7 @@ When loading a definition file, Cocoon builds a registry of nodes and views. We 
 ```json
 {
   "cocoon": {
-    "nodes": ["nodes/ExampleNode.js"]
+    "nodes": ["nodes/ExampleNode"]
   }
 }
 ```
@@ -113,8 +113,8 @@ Lastly, Cocoon needs to know where to find the view. So our `package.json` needs
   "cocoon": {
     "views": [
       {
-        "module": "views/Gallery.js",
-        "component": "dist/GalleryComponent.js"
+        "module": "views/Gallery",
+        "component": "dist/GalleryComponent"
       }
     ]
   }
@@ -140,8 +140,10 @@ If that sounded confusing and/or tedious, here's some good news: all of this can
 - Create a new view:
 
   ```
-  npx cocoon create MyView -v
+  npx cocoon create MyView -tv
   ```
+
+> :warning: **Important**: Don't forget to run `yarn build` after adding views or TypeScript nodes, to compile the source, otherwise Cocoon won't be able to read them and show an error. Alternatively, running `yarn dev` will run the compiler in watch mode.
 
 ## Debugging
 
