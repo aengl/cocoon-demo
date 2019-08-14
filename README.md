@@ -63,32 +63,30 @@ Coming soon.
 
 Interested in giving Cocoon a try yourself? While we're not ready to fully open source Cocoon quite yet, there is a [free distribution version hosted on npm](https://www.npmjs.com/package/@cocoon/cocoon).
 
-Follow these instructions to run the examples in this repository, or to build your own workflow:
+Before running any of the examples in this repository, follow this setup:
 
 1. Make sure to have a [recent version of Node.js](https://nodejs.org/en/download/) and [yarn](yarnpkg.com/lang/en/docs/install/) installed.
 
 1. Clone this repository:
 
-   ```
+   ```sh
    git clone https://github.com/aengl/cocoon-demo.git
    cd cocoon-demo
    ```
 
 1. Install the project dependencies.
 
-   ```
+   ```sh
    yarn
    ```
 
-1. Run any of the examples. To learn the basics, we recommended that you start with the [Simple API](/examples/simple-api) example by running:
-
-   ```sh
-   yarn example:simple-api
-   ```
-
-If you want to create a new workflow, simply create an empty `.yml` file and point your browser to it.
-
 ### Examples
+
+To learn the basics, we recommended that you start with the [Simple API](/examples/simple-api) example by running:
+
+```sh
+yarn example:simple-api
+```
 
 While there's no step-by-step tutorial for Cocoon, the examples are generally filled with documentation that try and explain various concepts and are all aimed at beginners. They can technically be studied in any order, but some of the basisc are only explained in the simpler examples, to avoid repetition. Our recommended order is:
 
@@ -107,6 +105,29 @@ While there's no step-by-step tutorial for Cocoon, the examples are generally fi
 1. [testing](/examples/testing)
 
    Examples for unit-testing nodes, integration-testing entire Cocoon definition files, and how Cocoon itself can be used for end-to-end testing.
+
+### Custom Project
+
+If you want to create a custom workflow, you can bootstrap a new Cocoon project without cloning this repository. Just make sure you have Node.js installed and run:
+
+```sh
+npx @cocoon/cocoon init my-project
+```
+
+Use the `--yarn` flag to install dependencies using [yarn](yarnpkg.com):
+
+```sh
+npx @cocoon/cocoon init my-project --yarn
+```
+
+Cocoon will create a new folder called `my-project` and install all prerequisites.
+
+You can then launch the editor with:
+
+```sh
+cd my-project
+npm run editor
+```
 
 ### Documentation
 
