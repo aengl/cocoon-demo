@@ -15,15 +15,15 @@
     ]
   },
   "dependencies": {
-    "@cocoon/plugin-distance": "0.104.0",
-    "@cocoon/plugin-echarts": "0.104.0",
-    "@cocoon/util": "0.104.0",
+    "@cocoon/plugin-distance": "0.105.0",
+    "@cocoon/plugin-echarts": "0.105.0",
+    "@cocoon/util": "0.105.0",
     "got": "9.6.0"
   },
   "devDependencies": {
-    "@cocoon/editor": "0.104.0",
-    "@cocoon/rollup": "0.104.0",
-    "@cocoon/types": "0.104.0",
+    "@cocoon/editor": "0.105.0",
+    "@cocoon/rollup": "0.105.0",
+    "@cocoon/types": "0.105.0",
     "@types/got": "9.6.6"
   },
   "scripts": {
