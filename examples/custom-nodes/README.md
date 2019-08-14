@@ -121,6 +121,28 @@ Lastly, Cocoon needs to know where to find the view. So our `package.json` needs
 }
 ```
 
+## CLI
+
+If that sounded confusing and/or tedious, here's some good news: all of this can be done automatically via the CLI. Make sure you're in a folder that contains the `package.json` for your Cocoon project and run the `create` command via the CLI:
+
+- Create a new node:
+
+  ```
+  npx cocoon create MyNode
+  ```
+
+- Create a new node using TypeScript:
+
+  ```
+  npx cocoon create MyNode -t
+  ```
+
+- Create a new view:
+
+  ```
+  npx cocoon create MyView -v
+  ```
+
 ## Debugging
 
 Your custom nodes and views can be debugged by attaching to Cocoon's Node.js process on port `9340`.
@@ -174,7 +196,7 @@ export interface ViewState {
 // React props which we will use in the view component
 export type Props = CocoonViewProps<ViewData, ViewState>;
 
-export const ShowMeaning: CocoonView<Data, ViewState> = {
+export const ShowMeaning: CocoonView<ViewData, ViewState> = {
   serialiseViewData: async (context, data: object[], state) => {
     return state.foo === 42
       ? 'the meaning of life'
@@ -189,7 +211,7 @@ export const ShowMeaning: CocoonView<Data, ViewState> = {
 // components/ShowMeaning.tsx
 
 import React from 'react';
-import { Props, ViewState } from '../views/ShowMeaning.ts';
+import { Props } from '../views/ShowMeaning.ts';
 
 export const ShowMeaning = (props: Props) => {
   const { isPreview, viewData, viewState } = props;
