@@ -65,14 +65,25 @@ Interested in giving Cocoon a try yourself? While we're not ready to fully open 
 
 Follow these instructions to run the examples in this repository, or to build your own workflow:
 
-1. Make sure to have a [recent version of Node.js](https://nodejs.org/en/download/) installed.
+1. Make sure to have a [recent version of Node.js](https://nodejs.org/en/download/) and [yarn](yarnpkg.com/lang/en/docs/install/) installed.
 
-1. Install the dependencies by running `npm install` or `yarn`.
+1. Clone this repository:
+
+   ```
+   git clone https://github.com/aengl/cocoon-demo.git
+   cd cocoon-demo
+   ```
+
+1. Install the project dependencies.
+
+   ```
+   yarn
+   ```
 
 1. Run any of the examples. To learn the basics, we recommended that you start with the [Simple API](/examples/simple-api) example by running:
 
    ```sh
-   npm run example:simple-api
+   yarn example:simple-api
    ```
 
 If you want to create a new workflow, simply create an empty `.yml` file and point your browser to it.
