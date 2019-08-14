@@ -16,7 +16,7 @@
     "puppeteer": "1.19.0"
   },
   "devDependencies": {
-    "@cocoon/editor": "0.105.0",
+    "@cocoon/editor": "0.105.1",
     "@types/puppeteer": "1.19.1"
   },
   "scripts": {
