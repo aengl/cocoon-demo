@@ -9,14 +9,14 @@
     ]
   },
   "dependencies": {
-    "@cocoon/plugin-views": "0.105.0",
-    "@cocoon/testing": "0.105.0",
-    "@cocoon/util": "0.105.0",
-    "ava": "2.2.0",
+    "@cocoon/plugin-views": "0.106.0",
+    "@cocoon/testing": "0.106.0",
+    "@cocoon/util": "0.106.0",
+    "ava": "2.3.0",
     "puppeteer": "1.19.0"
   },
   "devDependencies": {
-    "@cocoon/editor": "0.105.1",
+    "@cocoon/editor": "0.106.0",
     "@types/puppeteer": "1.19.1"
   },
   "scripts": {

@@ -32,4 +32,4 @@ nodes:
     type: Map
     view: Gallery
     viewState:
-      height: 80
+      size: 80

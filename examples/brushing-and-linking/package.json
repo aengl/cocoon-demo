@@ -3,10 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
-    "@cocoon/plugin-echarts": "0.105.0",
-    "@cocoon/plugin-views": "0.105.0"
+    "@cocoon/plugin-echarts": "0.106.0",
+    "@cocoon/plugin-views": "0.106.0"
   },
   "devDependencies": {
-    "@cocoon/editor": "0.105.1"
+    "@cocoon/editor": "0.106.0"
   }
 }
