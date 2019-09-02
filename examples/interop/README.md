@@ -1,6 +1,6 @@
 # Interop
 
-This example generates a distribution in Python, then runs a [k-means](https://en.wikipedia.org/wiki/K-means_clustering) clustering algorithm and plots in in R, demonstrating how scripts from multiple languages can be combined in Cocoon.
+This example generates a distribution in Python, then runs a [k-means](https://en.wikipedia.org/wiki/K-means_clustering) clustering algorithm and plots it in R, demonstrating how scripts from multiple languages can be combined in Cocoon.
 
 ## Usage
 
