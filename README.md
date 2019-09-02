@@ -21,7 +21,7 @@ Design goals for Cocoon are:
 
   ![](/resources/import.gif)
 
-- The graph can be created with simple direct manipulation technqiues, like drag & drop, right in the browser editor.
+- The graph can be created with simple direct manipulation techniques, like drag & drop, right in the browser editor.
 
   ![](/resources/drag&drop.gif)
 
@@ -88,7 +88,7 @@ To learn the basics, we recommended that you start with the [Simple API](/exampl
 yarn example:simple-api
 ```
 
-While there's no step-by-step tutorial for Cocoon, the examples are generally filled with documentation that try and explain various concepts and are all aimed at beginners. They can technically be studied in any order, but some of the basisc are only explained in the simpler examples, to avoid repetition. Our recommended order is:
+While there's no step-by-step tutorial for Cocoon, the examples are generally filled with documentation that try and explain various concepts and are all aimed at beginners. They can technically be studied in any order, but some of the basics are only explained in the simpler examples, to avoid repetition. Our recommended order is:
 
 1. [simple-api](/examples/simple-api)
 
