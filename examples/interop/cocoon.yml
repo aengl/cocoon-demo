@@ -1,0 +1,39 @@
+nodes:
+  GenerateInPython:
+    editor:
+      col: 0
+      row: 0
+    in:
+      command: ./generator.py
+      data:
+        - num_points: 1000
+          mu:
+            x: 0
+            y: 0
+          sigma: 0.5
+        - num_points: 100
+          mu:
+            x: 2
+            y: 1
+          sigma: 0.3
+        - num_points: 400
+          mu:
+            x: 1.5
+            y: -1.5
+          sigma: 0.8
+      deserialise: JSON.parse
+      serialise: JSON.stringify
+    type: Pipe
+    view: Scatterplot
+  VisualiseInR:
+    editor:
+      col: 1
+      row: 0
+    in:
+      command: ./plot.r
+      data: 'cocoon://GenerateInPython/out/data'
+      serialise: JSON.stringify
+    out:
+      src: plot.png
+    type: Pipe
+    view: Image

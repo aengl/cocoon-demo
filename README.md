@@ -102,6 +102,10 @@ While there's no step-by-step tutorial for Cocoon, the examples are generally fi
 
    Shows how custom nodes and views can be implemented in Cocoon using Javascript and [React](https://reactjs.org/). It also provides some templates for writing nodes and views in [TypeScript](https://www.typescriptlang.org/), and a brief note on how to debug nodes.
 
+1. [interop](/examples/interop)
+
+   Don't re-invent the wheel! Interoperability in Cocoon lets us to combine scripts in Python, R, and other languages to get the best from all worlds.
+
 1. [testing](/examples/testing)
 
    Examples for unit-testing nodes, integration-testing entire Cocoon definition files, and how Cocoon itself can be used for end-to-end testing.
