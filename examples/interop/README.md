@@ -24,7 +24,7 @@ Cocoon does not try to compete with excellent data science tools such as R Studi
 
 ![](screenshot.png)
 
-All that's needed is a [Pipe](https://cocoon-docs.aen.now.sh/#pipe) node, which borrows its name from the [Unix pipeline mechanism](<https://en.wikipedia.org/wiki/Pipeline_(Unix)>), since that is what it's using under the hood.
+All that's needed is a [Pipe](https://cocoon-docs.aen.now.sh/#pipe) node, which borrows its name from the [Unix pipeline mechanism](<https://en.wikipedia.org/wiki/Pipeline_(Unix)>), since that is what we're using under the hood.
 
 ```yaml
 GenerateInPython:
@@ -57,6 +57,6 @@ VisualiseInR:
   view: Image
 ```
 
-We then pipe this data into an R script which renders a plot. There's no need to write a complicated custom view: we can simply have the R script render the plot into an image which we then show in `Image` view provided by the `@cocoon/plugin-views` package.
+We then pipe this data into an R script which renders a plot. There's no need to write a complicated custom view: we can simply have the R script render the plot into an image which we then show in an `Image` view provided by the `@cocoon/plugin-views` package.
 
-Despite using external scripts, all of Cocoon's mechanism still work as expected: as we change parameters of the Gaussians, our R plot will update in real-time.
+Despite using external scripts, all of Cocoon's mechanisms still work as expected: as we change parameters of the Gaussians, our R plot will update in real-time.
