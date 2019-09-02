@@ -16,6 +16,7 @@
     "build": "(cd examples/custom-nodes && yarn build)",
     "example:brushing-and-linking": "cocoon-editor examples/brushing-and-linking/cocoon.yml",
     "example:custom-nodes": "cocoon-editor examples/custom-nodes/cocoon.yml",
+    "example:interop": "cocoon-editor examples/interop/cocoon.yml",
     "example:simple-api": "cocoon-editor examples/simple-api/cocoon.yml",
     "example:testing": "cocoon-editor examples/testing/cocoon.yml"
   }
