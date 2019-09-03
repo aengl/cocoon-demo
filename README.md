@@ -65,7 +65,7 @@ Interested in giving Cocoon a try yourself? While we're not ready to fully open 
 
 Before running any of the examples in this repository, follow this setup:
 
-1. Make sure to have a [recent version of Node.js](https://nodejs.org/en/download/) and [yarn](yarnpkg.com/lang/en/docs/install/) installed.
+1. Make sure to have a [recent version of Node.js](https://nodejs.org/en/download/) (>= 12) and [yarn](yarnpkg.com/lang/en/docs/install/) (npm does not support workspaces) installed.
 
 1. Clone this repository:
 
