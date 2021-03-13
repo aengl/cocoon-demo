@@ -1,3 +1,5 @@
+Cocoon is now open source! All examples are maintained in the [project repository](http://github.com/aengl/cocoon) moving forward.
+
 # Cocoon
 
 Cocoon is designed around task automation, but offers instant feedback through interactive visualisations, making it especially attractive for tasks involving large datasets.
